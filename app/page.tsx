@@ -1,6 +1,6 @@
 'use client'
-import { Pages, Services } from '@/components/sections'
-
+import { Services } from '@/components/sections'
+import Pages from './projects/page'
 import React from 'react'
 
 const Home = () => {
@@ -15,4 +15,3 @@ const Home = () => {
 }
 
 export default Home
-

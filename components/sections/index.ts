@@ -1,5 +1,5 @@
 import Portfolio from './Portfolio'
 import Services from './Services'
-import Pages from '@/app/projects/pages/page'
+// import Pages from '@/app/projects/pages/page'
 
-export { Portfolio, Services, Pages }
+export { Portfolio, Services }
