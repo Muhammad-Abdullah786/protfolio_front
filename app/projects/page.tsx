@@ -7,7 +7,7 @@ import TextReveal from '@/utils/animations/text-reveal'
 import { useRouter } from 'next/navigation'
 import { Project } from '@/types/project'
 
-export interface ProjectCarouselProps {
+interface ProjectCarouselProps {
     categoryId: string
     categoryTitle: string
     categoryDisc: string
