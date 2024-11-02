@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { ProductCarousel } from '@/components/sections/index'
+import ProductCarousel from '@/app/projects/page'
 
 const Pages = () => {
     const [categories, setCategories] = useState<any[]>([])

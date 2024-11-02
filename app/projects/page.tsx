@@ -5,13 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import TextReveal from '@/utils/animations/text-reveal'
 import { useRouter } from 'next/navigation'
-import { Project } from '@/types/project'
-
-interface ProjectCarouselProps {
-    categoryId: string
-    categoryTitle: string
-    categoryDisc: string
-}
+import { Project, ProjectCarouselProps } from '@/types/project'
 
 const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryTitle, categoryDisc }) => {
     const router = useRouter()
@@ -23,7 +17,7 @@ const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryT
         return videoExtensions.some((extension) => url.endsWith(extension))
     }
 
-    const handleCardClick = (projectCardID: number) => {
+    const handleCardClick = (projectCardID: string) => {
         router.push(`/projects/${projectCardID}`)
     }
 

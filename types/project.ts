@@ -1,5 +1,5 @@
 export interface Project {
-    _id: number
+    _id: string
     title: string
     description: string
     technologies: string[]
@@ -7,10 +7,13 @@ export interface Project {
     projectUrl?: string
 }
 
-
+export interface ProjectCarouselProps {
+    categoryId: string
+    categoryTitle: string
+    categoryDisc: string
+}
 export interface Category {
     _id: string
     title: string
     description: string
 }
-
