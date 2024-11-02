@@ -7,11 +7,6 @@ export interface Project {
     projectUrl?: string
 }
 
-export interface ProjectCarouselProps {
-    categoryId: string
-    categoryTitle: string
-    categoryDisc: string
-}
 
 export interface Category {
     _id: string

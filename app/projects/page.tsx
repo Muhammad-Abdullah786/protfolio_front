@@ -5,7 +5,13 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import TextReveal from '@/utils/animations/text-reveal'
 import { useRouter } from 'next/navigation'
-import { Project, ProjectCarouselProps } from '@/types/project'
+import { Project } from '@/types/project'
+
+export interface ProjectCarouselProps {
+    categoryId: string
+    categoryTitle: string
+    categoryDisc: string
+}
 
 const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryTitle, categoryDisc }) => {
     const router = useRouter()
