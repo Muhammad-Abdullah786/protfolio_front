@@ -29,7 +29,7 @@ export default function AdminDashboard() {
 
     const fetchPages = async () => {
         try {
-            const response = await axios.get('https://portfolio-backend-kohl-seven.vercel.app/v1/category/getAll')
+            const response = await axios.get(`${URL}/category/getAll`)
             // const response = await axios.get('http://localhost:3000/v1/category/getAll')
             setPages(response.data.data)
         } catch (error) {

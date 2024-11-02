@@ -9,6 +9,7 @@ const Pages = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
+                // const response = await axios.get(`http://localhost:3000/v1/category/getAll`)
                 const response = await axios.get(`${URL}/category/getAll`)
                 setCategories(response.data.data)
                 // console.log(response.data.data)
