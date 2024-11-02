@@ -7,7 +7,7 @@ import TextReveal from '@/utils/animations/text-reveal'
 import { useRouter } from 'next/navigation'
 import { Project, ProjectCarouselProps } from '@/types/project'
 
-const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryTitle, categoryDisc }) => {
+export const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryTitle, categoryDisc }) => {
     const router = useRouter()
     const [projects, setProjects] = useState<Project[]>([])
 
@@ -118,4 +118,4 @@ const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryT
     )
 }
 
-export default ProductCarousel
+
