@@ -81,7 +81,7 @@ export default function SimpleProjectForm() {
         })
 
         try {
-            const response = await axios.post(`${URL}/file/create${categoryId}`, formDataToSend, {
+            const response = await axios.post(`${URL}/file/create/${categoryId}`, formDataToSend, {
                 // const response = await axios.post(`http://localhost:3000/v1/file/create/${categoryId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
