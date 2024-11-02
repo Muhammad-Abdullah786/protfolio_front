@@ -1,7 +1,10 @@
 'use client'
-import { ArrowRight, Code, Palette, Globe, Smartphone } from 'lucide-react'
+
+import { ArrowRight, Code, Palette, Globe, Smartphone, Settings } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import TextReveal from '@/utils/animations/text-reveal'
+import Link from 'next/link'
 
 const Services = () => {
     const services = [
@@ -37,6 +40,20 @@ const Services = () => {
             <div className="bg-gradient-to-b from-blue-50 to-blue-100 pt-16 pb-32 relative z-10">
                 <div className="max-w-7xl mx-auto px-8">
                     <div className="space-y-12">
+                        {/* Admin Dashboard Button */}
+                        <div className="flex justify-end mb-8">
+                            <Link
+                                href="/admin"
+                                passHref>
+                                <Button
+                                    variant="outline"
+                                    className="bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200 flex items-center space-x-2">
+                                    <Settings className="w-5 h-5" />
+                                    <span>Admin Dashboard</span>
+                                </Button>
+                            </Link>
+                        </div>
+
                         <div className="space-y-4 text-center">
                             <h2 className="text-4xl font-bold tracking-tighter text-[1f2323]">Our Services</h2>
                             <p className="text-[333333] max-w-2xl mx-auto">
