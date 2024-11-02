@@ -14,6 +14,7 @@ import { useRouter } from 'next/navigation'
 import { Plus, Edit, FileText } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
+import URL from '@/apiURL'
 
 export default function AdminDashboard() {
     const [pages, setPages] = useState<Category[]>([])
@@ -24,11 +25,12 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         fetchPages()
-    }, )
+    })
 
     const fetchPages = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/v1/category/getAll')
+            const response = await axios.get('https://portfolio-backend-kohl-seven.vercel.app/v1/category/getAll')
+            // const response = await axios.get('http://localhost:3000/v1/category/getAll')
             setPages(response.data.data)
         } catch (error) {
             console.error('Error fetching pages:', error)
@@ -51,10 +53,12 @@ export default function AdminDashboard() {
 
         try {
             if (editingPage) {
-                await axios.put(`http://localhost:3000/v1/category/update/${editingPage._id}`, pageData)
+                // await axios.put(`http://localhost:3000/v1/category/update/${editingPage._id}`, pageData)
+                await axios.put(`${URL}/category/update/${editingPage._id}`, pageData)
                 toast({ title: 'Success', description: 'Page updated successfully', variant: 'default' })
             } else {
-                await axios.post('http://localhost:3000/v1/category', pageData)
+                // await axios.post('http://localhost:3000/v1/category', pageData)
+                await axios.post(`${URL}/category`, pageData)
                 toast({ title: 'Success', description: 'Page created successfully', variant: 'default' })
             }
             fetchPages() // Refresh the list of pages
@@ -79,18 +83,26 @@ export default function AdminDashboard() {
                     <CardContent>
                         <ScrollArea className="h-[400px] pr-4">
                             {pages.map((page) => (
-                                <div key={page._id} className="mb-4">
+                                <div
+                                    key={page._id}
+                                    className="mb-4">
                                     <div className="flex justify-between items-center">
                                         <div>
                                             <h3 className="font-semibold">{page.title}</h3>
                                             <p className="text-sm text-muted-foreground">{page.description}</p>
                                         </div>
                                         <div className="flex gap-2">
-                                            <Button variant="outline" size="sm" onClick={() => handleEditPage(page)}>
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                onClick={() => handleEditPage(page)}>
                                                 <Edit className="h-4 w-4 mr-2" />
                                                 Edit
                                             </Button>
-                                            <Button variant="outline" size="sm" onClick={() => router.push(`/admin/add-project?categoryId=${page._id}`)}>
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                onClick={() => router.push(`/admin/add-project?categoryId=${page._id}`)}>
                                                 <Plus className="h-4 w-4 mr-2" />
                                                 Add Content
                                             </Button>
@@ -100,7 +112,9 @@ export default function AdminDashboard() {
                                 </div>
                             ))}
                         </ScrollArea>
-                        <Button onClick={handleNewPage} className="mt-4">
+                        <Button
+                            onClick={handleNewPage}
+                            className="mt-4">
                             <Plus className="h-4 w-4 mr-2" />
                             Create New Page
                         </Button>
@@ -113,9 +127,15 @@ export default function AdminDashboard() {
                         <CardDescription>{editingPage ? 'Update the details of an existing page' : 'Add a new page to your website'}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <form onSubmit={handleSubmitPage} className="space-y-4">
+                        <form
+                            onSubmit={handleSubmitPage}
+                            className="space-y-4">
                             <div className="space-y-2">
-                                <label htmlFor="pageTitle" className="text-sm font-medium">Page Title</label>
+                                <label
+                                    htmlFor="pageTitle"
+                                    className="text-sm font-medium">
+                                    Page Title
+                                </label>
                                 <Input
                                     id="pageTitle"
                                     placeholder="Enter page title"
@@ -129,7 +149,11 @@ export default function AdminDashboard() {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label htmlFor="pageDescription" className="text-sm font-medium">Page Description</label>
+                                <label
+                                    htmlFor="pageDescription"
+                                    className="text-sm font-medium">
+                                    Page Description
+                                </label>
                                 <Textarea
                                     id="pageDescription"
                                     placeholder="Enter page description"
@@ -142,7 +166,9 @@ export default function AdminDashboard() {
                                     required
                                 />
                             </div>
-                            <Button type="submit" className="w-full">
+                            <Button
+                                type="submit"
+                                className="w-full">
                                 <FileText className="h-4 w-4 mr-2" />
                                 {editingPage ? 'Update Page' : 'Create Page'}
                             </Button>

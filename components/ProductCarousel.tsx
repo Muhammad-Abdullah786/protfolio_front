@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import TextReveal from '@/utils/animations/text-reveal'
 import { useRouter } from 'next/navigation'
 import { Project, ProjectCarouselProps } from '@/types/project'
+import URL from '@/apiURL'
 
 const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryTitle, categoryDisc }) => {
     const router = useRouter()
@@ -24,7 +25,7 @@ const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryT
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/v1/file/allProducts/category/${categoryId}`)
+                const response = await axios.get(`${URL}/file/allProducts/category/${categoryId}`)
                 setProjects(response?.data)
                 console.log(response.data)
             } catch (error) {

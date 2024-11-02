@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
 import { Project } from '@/types/project'
+import URL from '@/apiURL'
 
 const ProjectDetail = ({ params }: { params: { projectDetails: string } }) => {
     const { projectDetails } = params
@@ -13,7 +14,7 @@ const ProjectDetail = ({ params }: { params: { projectDetails: string } }) => {
     useEffect(() => {
         const fetchProjectData = async () => {
             try {
-                const response = await axios.get<{ data: Project }>(`http://localhost:3000/v1/file/projectDetails/${projectDetails}`)
+                const response = await axios.get<{ data: Project }>(`${URL}/file/projectDetails/${projectDetails}`)
                 setProject(response.data.data)
             } catch (error) {
                 console.error('Error fetching project data:', error)

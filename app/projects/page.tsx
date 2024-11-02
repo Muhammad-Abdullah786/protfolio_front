@@ -2,13 +2,14 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProductCarousel from '@/components/ProductCarousel'
+import URL from '@/apiURL'
 const Pages = () => {
     const [categories, setCategories] = useState<any[]>([])
 
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/v1/category/getAll')
+                const response = await axios.get(`${URL}/category/getAll`)
                 setCategories(response.data.data)
                 // console.log(response.data.data)
             } catch (error) {

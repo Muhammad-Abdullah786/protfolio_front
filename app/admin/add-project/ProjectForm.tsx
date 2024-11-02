@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { X, Upload } from 'lucide-react'
+import URL from '@/apiURL'
 
 interface FormData {
     title: string
@@ -80,13 +81,13 @@ export default function SimpleProjectForm() {
         })
 
         try {
-            const response = await axios.post(`http://localhost:3000/v1/file/create/${categoryId}`, formDataToSend, {
+            const response = await axios.post(`${URL}/file/create${categoryId}`, formDataToSend, {
+                // const response = await axios.post(`http://localhost:3000/v1/file/create/${categoryId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
             console.log(response.data)
-            console.log(`http://localhost:3000/v1/file/create/${categoryId}`)
             // alert('Project submitted successfully.')
             toast({
                 title: 'Success!',
