@@ -25,7 +25,7 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         fetchPages()
-    })
+    }, [])
 
     const fetchPages = async () => {
         try {
