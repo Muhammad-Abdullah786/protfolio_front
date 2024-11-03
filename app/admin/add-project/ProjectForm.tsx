@@ -257,7 +257,6 @@ interface FormData {
 }
 
 export default function SimpleProjectForm() {
-    const MAX_FILE_SIZE = 5 * 1024 * 1024
     const [formData, setFormData] = useState<FormData>({
         title: '',
         description: '',
@@ -279,24 +278,10 @@ export default function SimpleProjectForm() {
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFiles = event.target.files
         if (selectedFiles) {
-            const validFiles: File[] = []
-            let hasLargeFile = false
-
-            Array.from(selectedFiles).forEach((file) => {
-                if (file.size <= MAX_FILE_SIZE) {
-                    validFiles.push(file)
-                } else {
-                    hasLargeFile = true
-                }
-            })
-
-            if (hasLargeFile) {
-                alert('Some files were not added because they exceed the 5 MB size limit.')
-            }
-
-            setFiles(validFiles)
+            setFiles(Array.from(selectedFiles))
         }
     }
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
@@ -323,8 +308,8 @@ export default function SimpleProjectForm() {
         })
 
         try {
-            // const response = await axios.post(`http://localhost:3000/v1/file/create/${categoryId}`, formDataToSend, {
             const response = await axios.post(`${URL}file/create/${categoryId}`, formDataToSend, {
+                // const response = await axios.post(`http://localhost:3000/v1/file/create/${categoryId}`, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
