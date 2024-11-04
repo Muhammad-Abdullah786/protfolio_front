@@ -42,7 +42,7 @@ const Services = () => {
                     <div className="space-y-12">
                         {/* Admin Dashboard Button */}
                         <div className="flex justify-end mb-8">
-                            <Link
+                            {/* <Link
                                 href="/admin"
                                 passHref>
                                 <Button
@@ -51,7 +51,7 @@ const Services = () => {
                                     <Settings className="w-5 h-5" />
                                     <span>Admin Dashboard</span>
                                 </Button>
-                            </Link>
+                            </Link> */}
                         </div>
 
                         <div className="space-y-4 text-center">
