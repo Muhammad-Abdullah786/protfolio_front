@@ -27,9 +27,10 @@ const ProductCarousel: React.FC<ProjectCarouselProps> = ({ categoryId, categoryT
             try {
                 const response = await axios.get(`${URL}/file/allProducts/category/${categoryId}`)
                 setProjects(response?.data)
-                console.log(response.data)
+                // console.log(response.data)
             } catch (error) {
-                console.error('Error fetching projects:', error)
+                alert('error fetching projects')
+                // console.error('Error fetching projects:', error)
             }
         }
         fetchProjects()

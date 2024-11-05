@@ -17,7 +17,8 @@ const ProjectDetail = ({ params }: { params: { projectDetails: string } }) => {
                 const response = await axios.get<{ data: Project }>(`${URL}/file/projectDetails/${projectDetails}`)
                 setProject(response.data.data)
             } catch (error) {
-                console.error('Error fetching project data:', error)
+                alert('error fetching project data')
+                // console.error('Error fetching project data:', error)
             }
         }
         fetchProjectData()

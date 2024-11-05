@@ -2,7 +2,7 @@
 
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -23,20 +23,35 @@ export default function AdminDashboard() {
     const { toast } = useToast()
     const router = useRouter()
 
-    useEffect(() => {
-        fetchPages()
-    }, [])
+    // useEffect(() => {
+    //     fetchPages()
+    // }, [])
 
-    const fetchPages = async () => {
+    // const fetchPages = async () => {
+    //     try {
+    //         const response = await axios.get(`${URL}/category/getAll`)
+    //         // const response = await axios.get('http://localhost:3000/v1/category/getAll')
+    //         setPages(response.data.data)
+    //     } catch (error) {
+    //         console.error('Error fetching pages:', error)
+    //         toast({ title: 'Error', description: 'Failed to fetch pages', variant: 'destructive' })
+    //     }
+    // }
+
+    const fetchPages = useCallback(async () => {
         try {
             const response = await axios.get(`${URL}/category/getAll`)
-            // const response = await axios.get('http://localhost:3000/v1/category/getAll')
             setPages(response.data.data)
         } catch (error) {
-            console.error('Error fetching pages:', error)
+            // console.error('Error fetching pages:', error)
+            alert('error geting pages')
             toast({ title: 'Error', description: 'Failed to fetch pages', variant: 'destructive' })
         }
-    }
+    }, [toast])
+
+    useEffect(() => {
+        fetchPages()
+    }, [fetchPages])
 
     const handleEditPage = (page: Category) => {
         setEditingPage(page)
@@ -65,7 +80,8 @@ export default function AdminDashboard() {
             setEditingPage(null) // Reset the editing page
             setNewPage({ title: '', description: '' }) // Clear the form fields
         } catch (error) {
-            console.error('Error saving page:', error)
+            // console.error('Error saving page:', error)
+            alert('Error saving pages')
             toast({ title: 'Error', description: 'Failed to save page', variant: 'destructive' })
             // Do not alter authentication state here
         }
