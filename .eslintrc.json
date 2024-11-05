@@ -5,7 +5,8 @@
         "@next/next/no-page-custom-font": "off",
         "react/jsx-key": "off",
         "react/prop-types": "off",
-        "no-console": "error"
+        "no-console": "error",
+        "import/default": "off"
     }
 }
 

@@ -10,9 +10,6 @@ export interface ServicesProps {
     scrollToSection: (categoryId: string) => void
 }
 // TODO: this is working if error roll back to below
-// export interface PagesProps {
-//     refs: RefObject<{ [key: string]: HTMLDivElement | null }>
-// }
 
 export interface PagesProps {
     refs: RefObject<{ [key: string]: HTMLDivElement | null }>

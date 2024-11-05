@@ -15,7 +15,6 @@
 //                 setCategories(response.data.data)
 //             } catch (error) {
 //                 alert('Error fetching categories')
-//                 // console.error('Error fetching categories:', error)
 //             }
 //         }
 //         fetchCategories()
@@ -46,7 +45,7 @@
 // export default Pages
 
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, RefObject } from 'react'
 import axios from 'axios'
 import ProductCarousel from '@/components/ProductCarousel'
 import URL from '@/apiURL'
