@@ -6,6 +6,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/*             TODO:  this is for services css  */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.auto-scroll {
+  display: flex;
+  gap: 1rem;
+  animation: scroll 20s linear infinite;
+  /* Adjust speed as needed */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.auto-scroll.pause {
+  animation-play-state: paused;
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -40,6 +65,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -72,6 +98,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
