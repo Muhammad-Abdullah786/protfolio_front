@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
-import { Project } from '@/types/project'
+import { Project } from '@/components/types/project'
 import URL from '@/apiURL'
 
 const ProjectDetail = ({ params }: { params: { projectDetails: string } }) => {

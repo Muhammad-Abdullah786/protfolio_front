@@ -6,7 +6,8 @@
         "react/jsx-key": "off",
         "react/prop-types": "off",
         "no-console": "error",
-        "import/default": "off"
+        "import/default": "off",
+        "react/require-default-props": "off"
     }
 }
 

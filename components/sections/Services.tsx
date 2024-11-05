@@ -5,9 +5,9 @@ import axios from 'axios'
 import { Card, CardContent } from '@/components/ui/card'
 import TextReveal from '@/utils/animations/text-reveal'
 import styled, { keyframes } from 'styled-components'
-import { ServicesProps } from '@/types/file.interface'
+import { ServicesProps } from '@/components/types/fileInterface'
 import URL from '@/apiURL'
-import { Category } from '@/types/project'
+import { Category } from '@/components/types/project'
 
 const scroll = keyframes`
   0% { transform: translateX(0); }

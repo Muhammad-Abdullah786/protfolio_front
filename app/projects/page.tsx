@@ -1,9 +1,12 @@
 // 'use client'
-// import { useState, useEffect } from 'react'
+// import { useState,RefObject, useEffect } from 'react'
 // import axios from 'axios'
 // import ProductCarousel from '@/components/ProductCarousel'
 // import URL from '@/apiURL'
-// import { PagesProps } from '@/types/file.interface'
+
+// interface PagesProps {
+//     refs: RefObject<{ [key: string]: HTMLDivElement | null }>
+// }
 
 // const Pages: React.FC<PagesProps> = ({ refs }) => {
 //     const [categories, setCategories] = useState<any[]>([])
@@ -43,15 +46,15 @@
 // }
 
 // export default Pages
-
 'use client'
-import { useState, useEffect, RefObject } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ProductCarousel from '@/components/ProductCarousel'
 import URL from '@/apiURL'
-import { PagesProps } from '@/types/file.interface'
 
-const Pages: React.FC<PagesProps> = ({ refs }) => {
+// Remove type definition for props
+const Pages = ({ refs }: any) => {
+    // Use `any` for quick testing
     const [categories, setCategories] = useState<any[]>([])
 
     useEffect(() => {
