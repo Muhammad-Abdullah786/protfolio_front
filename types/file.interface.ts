@@ -9,7 +9,10 @@ export interface CustomFile {
 export interface ServicesProps {
     scrollToSection: (categoryId: string) => void
 }
-// In your `file.interface.ts` (assuming this is where `PagesProps` is defined)
+// TODO: this is working if error roll back to below
+// export interface PagesProps {
+//     refs: RefObject<{ [key: string]: HTMLDivElement | null }>
+// }
 
 export interface PagesProps {
     refs: RefObject<{ [key: string]: HTMLDivElement | null }>

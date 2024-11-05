@@ -1,5 +1,3 @@
-// admin/adminDashboard.tsx
-
 'use client'
 
 import React, { useState, useEffect, useCallback } from 'react'
@@ -22,21 +20,6 @@ export default function AdminDashboard() {
     const [newPage, setNewPage] = useState({ title: '', description: '' })
     const { toast } = useToast()
     const router = useRouter()
-
-    // useEffect(() => {
-    //     fetchPages()
-    // }, [])
-
-    // const fetchPages = async () => {
-    //     try {
-    //         const response = await axios.get(`${URL}/category/getAll`)
-    //         // const response = await axios.get('http://localhost:3000/v1/category/getAll')
-    //         setPages(response.data.data)
-    //     } catch (error) {
-    //         console.error('Error fetching pages:', error)
-    //         toast({ title: 'Error', description: 'Failed to fetch pages', variant: 'destructive' })
-    //     }
-    // }
 
     const fetchPages = useCallback(async () => {
         try {

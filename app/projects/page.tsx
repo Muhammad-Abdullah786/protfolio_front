@@ -14,7 +14,8 @@
 //                 const response = await axios.get(`${URL}/category/getAll`)
 //                 setCategories(response.data.data)
 //             } catch (error) {
-//                 console.error('Error fetching categories:', error)
+//                 alert('Error fetching categories')
+//                 // console.error('Error fetching categories:', error)
 //             }
 //         }
 //         fetchCategories()
@@ -27,7 +28,9 @@
 //                     <div
 //                         key={category._id}
 //                         ref={(el) => {
-//                             refs.current[category._id as string] = el
+//                             if (refs.current) {
+//                                 refs.current[category._id as string] = el
+//                             }
 //                         }}>
 //                         <ProductCarousel
 //                             categoryId={category._id}
@@ -59,7 +62,6 @@ const Pages: React.FC<PagesProps> = ({ refs }) => {
                 setCategories(response.data.data)
             } catch (error) {
                 alert('Error fetching categories')
-                // console.error('Error fetching categories:', error)
             }
         }
         fetchCategories()
