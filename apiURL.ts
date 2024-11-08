@@ -1,3 +1,3 @@
-let URL = 'https://portfolio-backend-six-sigma.vercel.app/v1'
+let URL = 'https://portfolio-backend-75fh.onrender.com/v1'
 
 export default URL
