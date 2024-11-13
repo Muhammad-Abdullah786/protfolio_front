@@ -14,3 +14,10 @@ export interface PagesProps {
     // Change from `export default interface` to `export interface`
     refs: RefObject<{ [key: string]: HTMLDivElement | null }>
 }
+
+export interface AlertState {
+    isOpen: boolean
+    title: string
+    description: string
+    onClose: () => void
+}
