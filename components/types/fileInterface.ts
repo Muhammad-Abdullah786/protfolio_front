@@ -19,5 +19,5 @@ export interface AlertState {
     isOpen: boolean
     title: string
     description: string
-    onClose: () => void
+    variant: 'default' | 'destructive'
 }
