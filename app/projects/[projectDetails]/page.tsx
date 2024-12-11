@@ -106,7 +106,11 @@ const ProjectDetail = ({ params }: { params: { projectDetails: string } }) => {
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 overflow-hidden">
                     <div
                         className="relative max-h-screen overflow-y-auto p-4 bg-white rounded-lg"
-                        style={{ width: '90%', maxWidth: '1200px' }}>
+                        style={{
+                            maxWidth: '100%', // Ensure the image is responsive
+                            height: 'auto', // Maintain the aspect ratio
+                            transformOrigin: 'center top' // Ensure zoom centers on top
+                        }}>
                         <img
                             src={project.imageUrl[activeMediaIndex]}
                             alt={`Project media ${activeMediaIndex + 1}`}

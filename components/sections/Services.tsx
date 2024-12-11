@@ -85,7 +85,7 @@ const Services: React.FC<ServicesProps> = ({ scrollToSection }) => {
                                 {service.description.length > 150 && (
                                     <>
                                         .....
-                                        <span className="font-bold text-blue-600 cursor-pointer hover:underline">
+                                        <span className="font-semibold text-blue-600 cursor-pointer hover:underline">
                                             <button
                                                 onClick={() => scrollToSection(service._id)}
                                                 className="read-more-button">
