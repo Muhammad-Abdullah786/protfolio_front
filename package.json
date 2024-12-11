@@ -30,6 +30,7 @@
     "devmoji": "^2.3.0",
     "embla-carousel-react": "^8.3.1",
     "framer-motion": "^11.11.10",
+    "lint-staged": "^15.2.11",
     "lucide-react": "^0.454.0",
     "next": "14.2.15",
     "react": "^18",
